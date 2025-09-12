@@ -23,11 +23,6 @@ git clone git clone git@github.com:NopNopBeta/build.git
 docker run -it -v $(pwd):/home/bevel/ --network="host" ghcr.io/hyperledger/bevel-build:latest
 ```
 
-Running Network.yaml
-```
-# Run the provisioning scripts
-docker run -it -v $(pwd):/home/bevel/ ghcr.io/hyperledger/bevel-build
-```
 ---
 ### Kubernetes Cluster
 
