@@ -36,8 +36,8 @@ network:
   # Do not check-in docker_password.
   docker:
     url: "ghcr.io/hyperledger"
-    username: "docker_username"
-    password: "docker_password"
+    username: "nop"
+    password: "1423"
   
   # Remote connection information for orderer (will be blank or removed for orderer hosting organization)
   # For RAFT consensus, have odd number (2n+1) of orderers for consensus agreement to have a majority.
@@ -49,17 +49,7 @@ network:
       name: orderer1
       org_name: supplychain               #org_name should match one organization definition below in organizations: key            
       uri: orderer1.supplychain-net.org1proxy.hlf.blockchaincloudpoc-develop.com:443   # Must include port, Can be external or internal URI for orderer which should be reachable by all peers
-    - orderer:
-      type: orderer
-      name: orderer2
-      org_name: supplychain               #org_name should match one organization definition below in organizations: key            
-      uri: orderer2.supplychain-net.org1proxy.hlf.blockchaincloudpoc-develop.com:443   # Must include port, Can be external or internal URI for orderer which should be reachable by all peers
-    - orderer:
-      type: orderer
-      name: orderer3
-      org_name: supplychain               #org_name should match one organization definition below in organizations: key            
-      uri: orderer3.supplychain-net.org1proxy.hlf.blockchaincloudpoc-develop.com:443   # Must include port, Can be external or internal URI for orderer which should be reachable by all peers
-  
+
   # The channels defined for a network with participating peers in each channel
   channels:
   - channel:
@@ -192,7 +182,7 @@ network:
       k8s:
         region: "cluster_region"
         context: "cluster_context"
-        config_file: "cluster_config"
+        config_file: "~/.kube/config.yaml"
 
       # Hashicorp Vault server address and root-token. Vault should be unsealed.
       # Do not check-in root_token

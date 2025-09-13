@@ -59,7 +59,7 @@ sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd
 ### Setup Kubernetes
 For First time running in the ***`Master node***
 ```
-sudo kubeadm init --apiserver-advertise-address=10.38.240.95 --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init --apiserver-advertise-address=10.38.240.95 --pod-network-cidr=10.244.0.0/16
 ```
 Then to start using your cluster, you need to run the following as a regular user:
 ```
@@ -72,3 +72,9 @@ Then you can join any number of worker nodes by running the following on each as
 ```
 sudo kubeadm token create --print-join-command
 ```
+
+Init for KUBECONFIG:
+```
+export KUBECONFIG=/path/to/config.yaml
+```
+kubeadm join 10.38.240.95:6443 --token mlpjxc.4mi9tn8slbp6nc5a --discovery-token-ca-cert-hash sha256:2c229808dd16f17d7920724f8604b2df29ce3450eaeb91d68c32aae05e19df0f
